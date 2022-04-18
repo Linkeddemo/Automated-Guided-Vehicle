@@ -1,0 +1,196 @@
+#include <ESP8266WiFi.h>
+
+const char* ssid = "kashi";
+const char* password = "kashi123456";
+WiFiServer server(80);
+String i;
+
+void setup()
+{
+  i = "";
+
+  Serial.begin(9600);
+
+  WiFi.disconnect();
+  delay(3000);
+
+  WiFi.begin(ssid, password);
+  while ((!(WiFi.status() == WL_CONNECTED))) {
+    delay(300);
+  }
+
+  server.begin();
+
+
+}
+
+
+void loop()
+{
+
+  WiFiClient client = server.available();
+  if (!client) {
+    return;
+  }
+  while (!client.available()) {
+    delay(1);
+  }
+  i = (client.readStringUntil('\r'));
+  i.remove(0, 5);
+  i.remove(i.length() - 9, 9);
+  if (i == "A") {
+    Serial.print("A");
+    delay(50);
+    client.println("HTTP/1.1 200 OK");
+    client.println("Content-Type: text/html");
+    client.println("");
+    client.println("<html>");
+    client.println(Serial.read());
+    client.println("</html>");
+  }
+  else if (i == "B") {
+    Serial.print("B");
+    delay(50);
+    client.println("HTTP/1.1 200 OK");
+    client.println("Content-Type: text/html");
+    client.println("");
+    client.println("<html>");
+    client.println(Serial.read());
+    delay(20);
+    client.println("</html>");
+  }
+  else if (i == "C") {
+    Serial.print("C");
+    delay(50);
+    client.println("HTTP/1.1 200 OK");
+    client.println("Content-Type: text/html");
+    client.println("");
+    client.println("<html>");
+    client.println(Serial.read());
+    delay(20);
+    client.println("</html>");
+  }
+  else if (i == "D") {
+    Serial.print("D");
+    delay(50);
+    client.println("HTTP/1.1 200 OK");
+    client.println("Content-Type: text/html");
+    client.println("");
+    client.println("<html>");
+    client.println(Serial.read());
+    delay(20);
+    client.println("</html>");
+  }
+  if (i == "E") {
+    Serial.print("E");
+    delay(50);
+    client.println("HTTP/1.1 200 OK");
+    client.println("Content-Type: text/html");
+    client.println("");
+    client.println("<html>");
+    client.println(Serial.read());
+    delay(20);
+    client.println("</html>");
+  }
+  else if (i == "F") {
+    Serial.print("F");
+    delay(50);
+    client.println("HTTP/1.1 200 OK");
+    client.println("Content-Type: text/html");
+    client.println("");
+    client.println("<html>");
+    client.println(Serial.read());
+    delay(20);
+    client.println("</html>");
+
+  }
+  else if (i == "G") {
+    Serial.print("G");
+    delay(50);
+    client.println("HTTP/1.1 200 OK");
+    client.println("Content-Type: text/html");
+    client.println("");
+    client.println("<html>");
+    client.println(Serial.read());
+    delay(20);
+    client.println("</html>");
+  }
+  else if (i == "H") {
+    Serial.print("H");
+    delay(50);
+    client.println("HTTP/1.1 200 OK");
+    client.println("Content-Type: text/html");
+    client.println("");
+    client.println("<html>");
+    client.println(Serial.read());
+    delay(20);
+    client.println("</html>");
+  }
+  if (i == "I") {
+    Serial.print("I");
+    delay(50);
+    client.println("HTTP/1.1 200 OK");
+    client.println("Content-Type: text/html");
+    client.println("");
+    client.println("<html>");
+    client.println(Serial.read());
+    delay(20);
+    client.println("</html>");
+  }
+  else if (i == "J") {
+    Serial.print("J");
+    delay(50);
+    client.println("HTTP/1.1 200 OK");
+    client.println("Content-Type: text/html");
+    client.println("");
+    client.println("<html>");
+    client.println(Serial.read());
+    delay(20);
+    client.println("</html>");
+  }
+  else if (i == "K") {
+    Serial.print("K");
+    delay(50);
+    client.println("HTTP/1.1 200 OK");
+    client.println("Content-Type: text/html");
+    client.println("");
+    client.println("<html>");
+    client.println(Serial.read());
+    delay(20);
+    client.println("</html>");
+  }
+  else if (i == "L") {
+    Serial.print("L");
+    delay(50);
+    client.println("HTTP/1.1 200 OK");
+    client.println("Content-Type: text/html");
+    client.println("");
+    client.println("<html>");
+    client.println(Serial.read());
+    delay(20);
+    client.println("</html>");
+  }
+  else if (i == "M") {
+    Serial.print("M");
+    delay(50);
+    client.println("HTTP/1.1 200 OK");
+    client.println("Content-Type: text/html");
+    client.println("");
+    client.println("<html>");
+    client.println(Serial.read());
+    delay(20);
+    client.println("</html>");
+  }
+  else if (i == "N") {
+    Serial.print("N");
+    delay(50);
+    client.println("HTTP/1.1 200 OK");
+    client.println("Content-Type: text/html");
+    client.println("");
+    client.println("<html>");
+    client.println(Serial.read());
+    delay(20);
+    client.println("</html>");
+  }
+
+}
